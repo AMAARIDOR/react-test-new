@@ -17,14 +17,22 @@ function LoginForm() {
   );
 }
 
-let content;
-let isLoggedIn = true;
+const products = [
+  { title: "Cabbage", id: 1 },
+  { title: "Garlic", id: 2 },
+  { title: "Apple", id: 3 },
+];
 
-if (isLoggedIn) {
-  content = <AdminPanel />;
-} else {
-  content = <LoginForm />;
+function ShoppingList() {
+  const listItems = products.map((product) => (
+    <li key={product.id}>{product.title}</li>
+  ));
+
+  return <ul>{listItems}</ul>;
 }
+
+let content;
+let isLoggedIn = false;
 
 function MyButton() {
   return <button>I'm a button</button>;
@@ -56,7 +64,10 @@ function App() {
         <h1>Welcome to my React App</h1>
         <MyButton />
       </div>
-      <div>{content}</div>
+      <div>
+        <ShoppingList />
+      </div>
+      <div>{isLoggedIn && <AdminPanel />}</div>
       <div>
         <AboutPage />
       </div>
