@@ -1,5 +1,6 @@
 import userEvent from "@testing-library/user-event";
 import "./index.css";
+import { useState } from "react";
 
 function AdminPanel() {
   return (
@@ -35,10 +36,11 @@ let content;
 let isLoggedIn = false;
 
 function MyButton() {
+  const [count, setCount] = useState(0);
   function handleClick() {
-    alert("You clicked me!");
+    setCount(count + 1);
   }
-  return <button onClick={handleClick}>I'm a button</button>;
+  return <button onClick={handleClick}>Clicked {count} times</button>;
 }
 
 function AboutPage() {
