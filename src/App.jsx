@@ -1,3 +1,4 @@
+import userEvent from "@testing-library/user-event";
 import "./index.css";
 
 function MyButton() {
@@ -5,11 +6,18 @@ function MyButton() {
 }
 
 function AboutPage() {
+  const user = {
+    name: "Amaari",
+    creature: "Homo-Sapien",
+    age: 23,
+    isEmployed: true,
+  };
+
   return (
     <>
-      <h1>About</h1>
+      <h1 className={user.creature}>About</h1>
       <p>
-        Hello there.
+        Hello there. {user.name}
         <br /> How do you do?
       </p>
     </>
